@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scots Law Connect | Scottish Legal Experts Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0055a4;
+            --secondary-blue: #0066cc;
+            --light-blue: #e6f2ff;
+            --dark-blue: #004494;
+            --accent-red: #d62828;
+            --accent-gold: #ffd700;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --background: #f8f9fa;
+            --white: #ffffff;
+            --border: #e9ecef;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background: var(--accent-red);
+            color: var(--white);
+        }
+
+        .btn-outline:hover, .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 85, 164, 0.9), rgba(0, 102, 204, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%230055a4"/><path d="M0,300 Q300,150 600,300 T1200,300 L1200,600 L0,600 Z" fill="%230066cc"/></svg>');
+            background-size: cover;
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q40,5 60,20 T100,20 L100,100 L0,100 L0,20 Z" fill="%23004494" opacity="0.1"/></svg>');
+            background-size: 200px;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .search-box button {
+            background: var(--accent-red);
+            color: var(--white);
+            border: none;
+            padding: 0 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #b22222;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Expert Card */
+        .expert-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-blue);
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .expert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expert-header h1 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .expert-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .expert-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            margin-right: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .expert-details h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .rating {
+            color: var(--accent-gold);
+            margin: 0.5rem 0;
+        }
+
+        .stats {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Chat Interface */
+        .chat-container {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .chat-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .chat-header {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .chat-messages {
+            padding: 1.5rem;
+            height: 200px;
+            overflow-y: auto;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background: var(--light-blue);
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        .chat-input {
+            padding: 1.5rem;
+        }
+
+        .chat-input input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .online-indicator {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            color: #28a745;
+            font-weight: 500;
+        }
+
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            background: #28a745;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .start-chat-btn {
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .start-chat-btn:hover {
+            background: var(--dark-blue);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .benefits h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-icon {
+            background: var(--primary-blue);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin-top: 3rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-blue);
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .customer-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .customer-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .step h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Solicitor Registration Form */
+        .solicitor-registration {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .agreement-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .agreement-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .agreement-section h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin: 1rem 0;
+        }
+
+        .checkbox-group input {
+            margin-right: 0.5rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .auth-buttons {
+                display: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .expert-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .expert-avatar {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            border-bottom: 3px solid var(--primary-blue);
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Grid Layout */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* IONOS Compatibility */
+        /* Ensure compatibility with IONOS hosting environment */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Print Styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* Email Link Styles */
+        .email-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .email-link:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">⚖️</span>
+                Scots Law Connect
+            </div>
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Legal Areas</a>
+                <a href="#">Find a Solicitor</a>
+                <a href="#">Pricing</a>
+                <a href="#">For Solicitors</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-outline">Log In</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Scottish Legal Expertise at Your Fingertips</h1>
+            <p>Connect directly with qualified Scottish solicitors for fast, affordable legal guidance tailored to Scots law.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Describe your Scottish legal issue...">
+                <button>Find Legal Help</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="grid-2col">
+            <!-- Left Column -->
+            <div>
+                <!-- Expert Card -->
+                <div class="expert-card">
+                    <div class="expert-header">
+                        <h1>Scottish Legal Network</h1>
+                    </div>
+                    <div class="expert-info">
+                        <div class="expert-avatar">SL</div>
+                        <div class="expert-details">
+                            <h3>Scottish Legal Specialists</h3>
+                            <div class="rating">★★★★★</div>
+                            <div class="stats">Over 15,000 satisfied clients across Scotland</div>
+                        </div>
+                    </div>
+                    
+                    <div class="past-orders">
+                        <h4>Recent Client Questions:</h4>
+                        <div class="message">
+                            "I need advice on a property dispute in Edinburgh. What are my rights under Scots law?"
+                        </div>
+                        <div class="message">
+                            "Can you help me understand the new Scottish family law regulations?"
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits Section -->
+                <div class="benefits">
+                    <h3>Why Choose Scots Law Connect?</h3>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-gavel"></i></div>
+                        <div>
+                            <strong>Scots Law Specialists</strong>
+                            <p>All our solicitors specialize in Scottish legislation and legal procedures</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <strong>Rapid Response</strong>
+                            <p>Get answers to your legal questions in hours, not days</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-pound-sign"></i></div>
+                        <div>
+                            <strong>Transparent Pricing</strong>
+                            <p>Fixed-fee consultations with no hidden costs</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <strong>Fully Regulated</strong>
+                            <p>All solicitors verified by the Law Society of Scotland</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <!-- Chat Interface -->
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h3>Connect with a Scottish Legal Expert</h3>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message">
+                            Welcome to Scots Law Connect! We have Scottish solicitors available to help with your legal questions regarding property, family law, employment, and more.
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" placeholder="Type your Scottish legal question here...">
+                        <div class="online-indicator">
+                            <div class="online-dot"></div>
+                            14 Scottish solicitors available now
+                        </div>
+                        <button class="start-chat-btn">Start Consultation - From £49</button>
+                    </div>
+                </div>
+
+                <!-- Solicitor Registration CTA -->
+                <div class="benefits" style="text-align: center;">
+                    <h3>Scottish Solicitor?</h3>
+                    <p>Join our exclusive network and connect with clients across Scotland</p>
+                    <button class="btn btn-primary" style="margin-top: 1rem;" id="joinAsSolicitorBtn">Join Our Legal Network</button>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        Or email us directly: <a href="mailto:contact@scotslawconnect.co.uk" class="email-link">contact@scotslawconnect.co.uk</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials">
+            <h2 class="section-title">Client Success Stories</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="customer-header">
+                        <div class="customer-avatar">MF</div>
+                        <div>
+                            <strong>Michael F.</strong>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"The solicitor I connected with provided excellent advice on my commercial lease dispute. Their knowledge of Scottish property law was impressive, and they saved me thousands in potential legal fees."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="customer-header">
+                        <div class="customer-avatar">SC</div>
+                        <div>
+                            <strong>Sarah C.</strong>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"As an American moving to Scotland, I needed guidance on visa requirements. The immigration solicitor was incredibly helpful and made the complex process much clearer."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="customer-header">
+                        <div class="customer-avatar">DJ</div>
+                        <div>
+                            <strong>David J.</strong>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"I needed urgent advice on an employment contract issue. Within an hour, I was speaking with a specialist who gave me the confidence to handle the situation correctly."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- How it Works -->
+        <div class="how-it-works">
+            <h2 class="section-title">How Scots Law Connect Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-edit"></i></div>
+                    <h3>Describe Your Issue</h3>
+                    <p>Tell us about your Scottish legal matter in simple terms</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Match with a Specialist</h3>
+                    <p>We connect you with a solicitor experienced in your specific area of Scots law</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Get Expert Advice</h3>
+                    <p>Receive clear, practical guidance from your matched solicitor</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solicitor Registration Form (Initially Hidden) -->
+        <div class="solicitor-registration" id="solicitorRegistration">
+            <h2 class="section-title">Join Our Scottish Legal Network</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Complete the form below to apply as a solicitor on our platform. Applications will be sent to <a href="mailto:contact@scotslawconnect.co.uk" class="email-link">contact@scotslawconnect.co.uk</a> for processing.</p>
+            
+            <form id="solicitorApplicationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="firmName">Law Firm Name</label>
+                    <input type="text" id="firmName">
+                </div>
+                
+                <div class="form-group">
+                    <label for="practiceNumber">Law Society of Scotland Practice Number</label>
+                    <input type="text" id="practiceNumber" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="specialties">Legal Specialties</label>
+                    <select id="specialties" multiple>
+                        <option value="property">Property Law</option>
+                        <option value="family">Family Law</option>
+                        <option value="employment">Employment Law</option>
+                        <option value="commercial">Commercial Law</option>
+                        <option value="litigation">Litigation</option>
+                        <option value="immigration">Immigration Law</option>
+                        <option value="criminal">Criminal Law</option>
+                        <option value="personal-injury">Personal Injury</option>
+                    </select>
+                    <small>Hold Ctrl/Cmd to select multiple specialties</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Years of Practice in Scotland</label>
+                    <input type="number" id="experience" min="1" required>
+                </div>
+                
+                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Platform Agreement</h3>
+                
+                <div class="agreement-container">
+                    <div class="agreement-section">
+                        <h4>Commission Structure</h4>
+                        <p>Scots Law Connect operates on the following commission tiers:</p>
+                        <ul>
+                            <li><strong>Standard Tier (17.5%):</strong> Basic listing, up to 10 consultations/month</li>
+                            <li><strong>Professional Tier (22.5%):</strong> Featured listing, unlimited consultations</li>
+                            <li><strong>Premium Tier (27.5%):</strong> Premium placement, dedicated support</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h4>Payment Terms</h4>
+                        <p>Payments are processed within 15-30 days of service completion, depending on your selected tier. You are responsible for setting your consultation fees within our recommended pricing guidelines.</p>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h4>Professional Requirements</h4>
+                        <p>You must maintain a valid practicing certificate from the Law Society of Scotland and adequate professional indemnity insurance. All advice provided must comply with Scottish legal standards and professional conduct rules.</p>
+                    </div>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <label for="agreeTerms">I have read and agree to the Scots Law Connect Platform Agreement</label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="certifyCredentials" required>
+                    <label for="certifyCredentials">I certify that I hold a valid Law Society of Scotland practicing certificate and maintain appropriate professional indemnity insurance</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; margin-top: 1rem;">Submit Application to contact@scotslawconnect.co.uk</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Scots Law Connect</h3>
+                <p>Connecting Scotland with qualified legal experts since 2023. Our platform is designed specifically for Scottish legal matters.</p>
+                <p style="margin-top: 1rem;">
+                    <strong>General Enquiries:</strong><br>
+                    <a href="mailto:info@scotslawconnect.co.uk" class="email-link">info@scotslawconnect.co.uk</a>
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Solicitor Applications:</strong><br>
+                    <a href="mailto:contact@scotslawconnect.co.uk" class="email-link">contact@scotslawconnect.co.uk</a>
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Find a Solicitor</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">For Solicitors</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal Areas</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Property Law</a></li>
+                    <li><a href="#">Family Law</a></li>
+                    <li><a href="#">Employment Law</a></li>
+                    <li><a href="#">Commercial Law</a></li>
+                    <li><a href="#">Immigration</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@scotslawconnect.co.uk">info@scotslawconnect.co.uk</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:contact@scotslawconnect.co.uk">contact@scotslawconnect.co.uk</a></li>
+                    <li><i class="fas fa-phone"></i> 0131 123 4567</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Edinburgh, Scotland</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Scots Law Connect. All rights reserved. | Law Society of Scotland Verified Platform</p>
+        </div>
+    </footer>
+
+    <!-- Solicitor Agreement Modal -->
+    <div class="modal" id="agreementModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Scots Law Connect Solicitor Agreement</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="agreement-container" style="max-height: 400px;">
+                <!-- Agreement content would go here -->
+                <p>This is a simplified version of the solicitor agreement. The full agreement would be displayed here with all terms and conditions.</p>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: center;">
+                <button class="btn btn-primary" id="acceptAgreement">I Accept the Agreement</button>
+                <button class="btn btn-outline" style="margin-left: 1rem;">Download PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Show solicitor registration form
+        document.getElementById('joinAsSolicitorBtn').addEventListener('click', function() {
+            document.getElementById('solicitorRegistration').style.display = 'block';
+            document.getElementById('solicitorRegistration').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Form submission with email integration
+        document.getElementById('solicitorApplicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                firmName: document.getElementById('firmName').value,
+                practiceNumber: document.getElementById('practiceNumber').value,
+                specialties: Array.from(document.getElementById('specialties').selectedOptions).map(option => option.value),
+                experience: document.getElementById('experience').value,
+                agreeTerms: document.getElementById('agreeTerms').checked,
+                certifyCredentials: document.getElementById('certifyCredentials').checked
+            };
+            
+            // In a real implementation, this would send the data to a server
+            // For now, we'll simulate sending an email
+            const emailBody = `New Solicitor Application:
+            
+Name: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Firm: ${formData.firmName || 'Not specified'}
+Practice Number: ${formData.practiceNumber}
+Specialties: ${formData.specialties.join(', ')}
+Years of Experience: ${formData.experience}
+            
+Agreed to Terms: ${formData.agreeTerms ? 'Yes' : 'No'}
+Certified Credentials: ${formData.certifyCredentials ? 'Yes' : 'No'}
+            
+Application submitted on: ${new Date().toLocaleString()}`;
+            
+            // Create a mailto link (in a real implementation, this would be a server-side process)
+            const mailtoLink = `mailto:contact@scotslawconnect.co.uk?subject=New Solicitor Application - ${formData.firstName} ${formData.lastName}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client (or show success message)
+            alert('Thank you for your application! We will review your details and contact you within 2 business days. Click OK to open your email client to send your application to contact@scotslawconnect.co.uk.');
+            window.location.href = mailtoLink;
+            
+            this.reset();
+            document.getElementById('solicitorRegistration').style.display = 'none';
+        });
+
+        // Chat functionality
+        document.querySelector('.start-chat-btn').addEventListener('click', function() {
+            const input = document.querySelector('.chat-input input');
+            if (input.value.trim()) {
+                const messages = document.querySelector('.chat-messages');
+                const newMessage = document.createElement('div');
+                newMessage.className = 'message';
+                newMessage.textContent = input.value;
+                messages.appendChild(newMessage);
+                input.value = '';
+                messages.scrollTop = messages.scrollHeight;
+                
+                // Simulate expert response
+                setTimeout(() => {
+                    const response = document.createElement('div');
+                    response.className = 'message';
+                    response.textContent = "Thank you for your question. I'm reviewing this Scottish legal matter and will provide detailed advice shortly.";
+                    messages.appendChild(response);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 2000);
+            }
+        });
+
+        document.querySelector('.chat-input input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.start-chat-btn').click();
+            }
+        });
+
+        // Modal functionality
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('agreementModal').style.display = 'none';
+        });
+
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('agreementModal')) {
+                document.getElementById('agreementModal').style.display = 'none';
+            }
+        });
+
+        // Search functionality
+        document.querySelector('.search-box button').addEventListener('click', function() {
+            const query = document.querySelector('.search-box input').value;
+            if (query.trim()) {
+                alert(`Searching for Scottish legal help with: "${query}"`);
+                // In a real implementation, this would redirect to search results
+            }
+        });
+
+        // Print functionality for agreements
+        document.querySelector('.btn-outline').addEventListener('click', function() {
+            window.print();
+        });
+
+        // Email link styling
+        const emailLinks = document.querySelectorAll('.email-link');
+        emailLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.textDecoration = 'underline';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.textDecoration = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
